@@ -1,0 +1,157 @@
+body {
+   margin: 0;
+   padding: 0;
+   background: url('assets/bg.png') no-repeat center center fixed;
+   background-size: cover;
+   min-height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-family: Arial, sans-serif;
+}
+
+.container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 2rem;
+   padding: 2rem;
+   width: 100%;
+   max-width: 1200px;
+}
+
+.title {
+   max-width: 80%;
+   height: auto;
+}
+
+.contract-container {
+   width: 100%;
+   max-width: 600px;
+   display: flex;
+   justify-content: center;
+}
+
+.contract-box {
+   background: url('assets/contract.png') no-repeat center center;
+   background-size: contain;
+   padding: 1rem 2rem;
+   min-height: 60px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   position: relative;
+   cursor: pointer;
+}
+
+.contract-text {
+   color: #ffffff;
+   font-size: 16px;
+   text-align: center;
+   word-break: break-all;
+}
+
+.buy-button {
+   cursor: pointer;
+   transition: transform 0.2s;
+}
+
+.buy-button:hover {
+   transform: none;
+}
+
+.buy-button a {
+   text-decoration: none;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.buy-button a:hover {
+   transform: scale(1.05);
+}
+
+.buy-now {
+   max-width: 200px;
+   height: auto;
+}
+
+.social-icons {
+   display: flex;
+   gap: 4rem;
+   margin-top: 2rem;
+}
+
+.social-icons a {
+   text-decoration: none;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.social-icons a:hover {
+   transform: scale(1.1);
+}
+
+.icon {
+   width: 80px;
+   height: 80px;
+   transition: transform 0.2s;
+}
+
+.icon:hover {
+   transform: none;
+}
+
+.copy-notification {
+   position: absolute;
+   background: rgba(0, 0, 0, 0.8);
+   color: white;
+   padding: 8px 16px;
+   border-radius: 4px;
+   font-size: 14px;
+   top: -40px;
+   left: 50%;
+   transform: translateX(-50%);
+   opacity: 0;
+   visibility: hidden;
+   transition: opacity 0.3s, visibility 0.3s;
+}
+
+.copy-notification.show {
+   opacity: 1;
+   visibility: visible;
+}
+
+.contract-box:hover {
+   opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+   .container {
+      padding: 1rem;
+      gap: 1.5rem;
+   }
+
+   .title {
+      max-width: 90%;
+   }
+
+   .contract-box {
+      padding: 0.5rem 1rem;
+   }
+
+   .contract-text {
+      font-size: 14px;
+   }
+
+   .social-icons {
+      gap: 2rem;
+   }
+
+   .icon {
+      width: 60px;
+      height: 60px;
+   }
+}
