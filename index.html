@@ -1,76 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Woog</title>
-      <link rel="stylesheet" href="styles.css" />
-      <link rel="icon" type="image/png" href="assets/ico_x.png" />
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
-   </head>
-   <body>
-      <div class="container">
-         <img src="assets/title.png" alt="Woog" class="title" />
 
-         <div class="contract-container">
-            <div class="contract-box" onclick="copyContract()">
-               <span class="contract-text"
-                  >78Xxh4yrBahSskAYpxmG5LHuA65EksrXkjZQKZoRpump</span
-               >
-               <div class="copy-notification">Copied!</div>
-            </div>
-         </div>
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Woog</title>
+   <link rel="stylesheet" href="styles.css" />
+   <link rel="icon" type="image/png" href="assets/ico_x.png" />
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+</head>
 
-         <div class="buy-button">
-            <a
-               href="https://jup.ag/swap/SOL-78Xxh4yrBahSskAYpxmG5LHuA65EksrXkjZQKZoRpump"
-               target="_blank"
-               rel="noopener noreferrer"
-            >
-               <img src="assets/buy_now.png" alt="Buy Now" class="buy-now" />
-            </a>
-         </div>
+<body>
+   <div class="container">
+      <img src="assets/title.png" alt="Woog" class="title" />
 
-         <div class="social-icons">
-            <a
-               href="https://www.dextools.io/app/en/solana/pair-explorer/2YL8id64abRPEg7TMFBbNQ4toFbrSULBBhgiqpa5L9SV?t=1748167559251"
-               target="_blank"
-               rel="noopener noreferrer"
-            >
-               <img src="assets/dex_1.png" alt="Raydium DEX" class="icon" />
-            </a>
-            <a
-               href="https://dexscreener.com/solana/78Xxh4yrBahSskAYpxmG5LHuA65EksrXkjZQKZoRpump"
-               target="_blank"
-               rel="noopener noreferrer"
-            >
-               <img src="assets/dex_2.png" alt="Jupiter DEX" class="icon" />
-            </a>
-            <a
-               href="https://x.com/WoogSol"
-               target="_blank"
-               rel="noopener noreferrer"
-            >
-               <img src="assets/x.png" alt="Twitter" class="icon" />
-            </a>
-            <a
-               href="https://t.me/WoogSol"
-               target="_blank"
-               rel="noopener noreferrer"
-            >
-               <img src="assets/telegram.png" alt="Telegram" class="icon" />
-            </a>
+      <div class="contract-container">
+         <div class="contract-box" onclick="copyContract()">
+            <span class="contract-text">78Xxh4yrBahSskAYpxmG5LHuA65EksrXkjZQKZoRpump</span>
+            <div class="copy-notification">Copied!</div>
          </div>
       </div>
-      <script>
-         async function copyContract() {
-            try {
-               const contractText =
-                  document.querySelector('.contract-text').textContent;
-               await navigator.clipboard.writeText(contractText);
 
+      <div class="buy-button">
+         <a href="https://jup.ag/swap/SOL-78Xxh4yrBahSskAYpxmG5LHuA65EksrXkjZQKZoRpump" target="_blank"
+            rel="noopener noreferrer">
+            <img src="assets/buy_now.png" alt="Buy Now" class="buy-now" />
+         </a>
+      </div>
+
+      <div class="social-icons">
+         <a href="https://www.dextools.io/app/en/solana/pair-explorer/2YL8id64abRPEg7TMFBbNQ4toFbrSULBBhgiqpa5L9SV?t=1748167559251"
+            target="_blank" rel="noopener noreferrer">
+            <img src="assets/dex_1.png" alt="Raydium DEX" class="icon" />
+         </a>
+         <a href="https://dexscreener.com/solana/78Xxh4yrBahSskAYpxmG5LHuA65EksrXkjZQKZoRpump" target="_blank"
+            rel="noopener noreferrer">
+            <img src="assets/dex_2.png" alt="Jupiter DEX" class="icon" />
+         </a>
+         <a href="https://x.com/SpooSol" target="_blank" rel="noopener noreferrer">
+            <img src="assets/x.png" alt="Twitter" class="icon" />
+         </a>
+         <a href="https://t.me/SpooSol" target="_blank" rel="noopener noreferrer">
+            <img src="assets/telegram.png" alt="Telegram" class="icon" />
+         </a>
+      </div>
+   </div>
+   <script>
+      async function copyContract() {
+         try {
+            const contractText =
+               document.querySelector('.contract-text').textContent;
+            await navigator.clipboard.writeText(contractText);
+
+            const notification =
+               document.querySelector('.copy-notification');
+            notification.classList.add('show');
+
+            setTimeout(() => {
+               notification.classList.remove('show');
+            }, 2000);
+         } catch (err) {
+            // Fallback для старых браузеров
+            const textArea = document.createElement('textarea');
+            textArea.value =
+               document.querySelector('.contract-text').textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+
+            try {
+               document.execCommand('copy');
                const notification =
                   document.querySelector('.copy-notification');
                notification.classList.add('show');
@@ -79,29 +79,13 @@
                   notification.classList.remove('show');
                }, 2000);
             } catch (err) {
-               // Fallback для старых браузеров
-               const textArea = document.createElement('textarea');
-               textArea.value =
-                  document.querySelector('.contract-text').textContent;
-               document.body.appendChild(textArea);
-               textArea.select();
-
-               try {
-                  document.execCommand('copy');
-                  const notification =
-                     document.querySelector('.copy-notification');
-                  notification.classList.add('show');
-
-                  setTimeout(() => {
-                     notification.classList.remove('show');
-                  }, 2000);
-               } catch (err) {
-                  console.error('Failed to copy:', err);
-               }
-
-               document.body.removeChild(textArea);
+               console.error('Failed to copy:', err);
             }
+
+            document.body.removeChild(textArea);
          }
-      </script>
-   </body>
+      }
+   </script>
+</body>
+
 </html>
